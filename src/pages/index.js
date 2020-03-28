@@ -91,6 +91,7 @@ class Home extends Component {
                 </Container>
               </Card>
             </Col>
+            <br />
             <Col className="col-style" xs={12} md={4}>
               <Card className="card-style">
                 <Container>
