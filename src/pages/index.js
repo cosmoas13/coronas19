@@ -3,13 +3,14 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { Container, Row, Col, Card, Jumbotron, Form } from "react-bootstrap";
 import "../App.css";
 import Header from "../component/header";
-// import Chart from "../component/chart";
+import Chart from "../component/chart";
 class Home extends Component {
   render() {
     return (
       <>
         <Container>
           <Header />
+          <br />
           <Row>
             <Col xs={12} md={4}>
               <Card className="card-style">
@@ -91,7 +92,6 @@ class Home extends Component {
                 </Container>
               </Card>
             </Col>
-            <br />
             <Col className="col-style" xs={12} md={4}>
               <Card className="card-style">
                 <Container>
@@ -108,13 +108,16 @@ class Home extends Component {
               </Card>
             </Col>
           </Row>
-          {/* <Row>
+          <br />
+          <Row>
             <Col className="col-style" xs={12} md={12}>
-              <Card className="card-style">
-                <Container></Container>
+              <Card className="card-style1">
+                <Container>
+                  <Chart legendPosition="bottom" />
+                </Container>
               </Card>
             </Col>
-          </Row> */}
+          </Row>
         </Container>
       </>
     );

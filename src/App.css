@@ -7,6 +7,15 @@
   align-items: center;
 }
 
+.card-style1 {
+  background-color: transparent;
+  border-radius: 50px;
+  box-shadow: -20px -20px 60px #3a2d38, 20px 20px 60px #4e3d4c;
+  height: 400px;
+  justify-content: center;
+  align-items: center;
+}
+
 body {
   height: 100%;
   width: 100%;
