@@ -3,6 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#000000" />
     <meta
@@ -24,11 +25,81 @@
       work correctly both with client-side routing and a non-root public URL.
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
+
     <title>React App</title>
   </head>
-  <body>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div id="root"></div>
+  <body class="back-row-toggle splat-toggle">
+    <div>
+      <script>
+        $(document).ready(function() {
+          var makeItRain = function() {
+            //clear out everything
+            $(".rain").empty();
+
+            var increment = 0;
+            var drops = "";
+            var backDrops = "";
+
+            while (increment < 100) {
+              //couple random numbers to use for various randomizations
+              //random number between 98 and 1
+              var randoHundo = Math.floor(Math.random() * (98 - 1 + 1) + 1);
+              //random number between 5 and 2
+              var randoFiver = Math.floor(Math.random() * (5 - 2 + 1) + 2);
+              //increment
+              increment += randoFiver;
+              //add in a new raindrop with various randomizations to certain CSS properties
+              drops +=
+                '<div class="drop" style="left: ' +
+                increment +
+                "%; bottom: " +
+                (randoFiver + randoFiver - 1 + 100) +
+                "%; animation-delay: 0." +
+                randoHundo +
+                "s; animation-duration: 0.5" +
+                randoHundo +
+                's;"><div class="stem" style="animation-delay: 0.' +
+                randoHundo +
+                "s; animation-duration: 0.5" +
+                randoHundo +
+                's;"></div><div class="splat" style="animation-delay: 0.' +
+                randoHundo +
+                "s; animation-duration: 0.5" +
+                randoHundo +
+                's;"></div></div>';
+              backDrops +=
+                '<div class="drop" style="right: ' +
+                increment +
+                "%; bottom: " +
+                (randoFiver + randoFiver - 1 + 100) +
+                "%; animation-delay: 0." +
+                randoHundo +
+                "s; animation-duration: 0.5" +
+                randoHundo +
+                's;"><div class="stem" style="animation-delay: 0.' +
+                randoHundo +
+                "s; animation-duration: 0.5" +
+                randoHundo +
+                's;"></div><div class="splat" style="animation-delay: 0.' +
+                randoHundo +
+                "s; animation-duration: 0.5" +
+                randoHundo +
+                's;"></div></div>';
+            }
+
+            $(".rain.front-row").append(drops);
+            $(".rain.back-row").append(backDrops);
+          };
+
+          makeItRain();
+        });
+      </script>
+      <div class="rain front-row"></div>
+      <div class="rain back-row"></div>
+
+      <div id="root"></div>
+    </div>
+
     <!--
       This HTML file is a template.
       If you open it directly in the browser, you will see an empty page.
