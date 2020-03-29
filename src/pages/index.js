@@ -1,18 +1,19 @@
 import React, { Component } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Container, Row, Col, Card, Jumbotron, Form } from "react-bootstrap";
+import { Container, Row, Col, Card, Form } from "react-bootstrap";
 import axios from "axios";
 import moment from "moment";
 import "../App.css";
 import Header from "../component/header";
 import Chart from "../component/chart";
+
 class Home extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      iso3: null,
       country: null,
-      confirmed: null,
-      countryDefault: null
+      data: null
     };
   }
 
@@ -26,38 +27,24 @@ class Home extends Component {
     });
   };
 
-  getConfirmed = () => {
+  getConfirmed = value => {
     axios({
       method: "get",
-      url: "https://covid19.mathdro.id/api/confirmed",
+      url: "https://covid19.mathdro.id/api/countries/" + value,
       responseType: "json"
     }).then(response => {
-      this.setState({ confirmed: response.data });
+      this.setState({ data: response.data });
     });
-  };
-
-  setDefaultCountry = async key => {
-    const { confirmed } = this.state;
-    const data = await this.searchDataObject(confirmed, key);
-    this.setState({ countryDefault: data });
-  };
-
-  searchDataObject = (object, key) => {
-    return object.filter(x => x.iso3 === key)[0];
   };
 
   componentDidMount = async () => {
     this.getCountries();
-    this.getConfirmed();
+    this.getConfirmed("AFG");
   };
 
   render() {
-    const { country, confirmed } = this.state;
-    let databycountry;
-    confirmed != null
-      ? (databycountry = this.searchDataObject(confirmed, "AFG"))
-      : (databycountry = "Loading");
-    console.log(databycountry);
+    const { data, country } = this.state;
+    console.log(data);
     return (
       <>
         <Container>
@@ -84,10 +71,17 @@ class Home extends Component {
                         style={{ backgroundColor: "transparent" }}
                         as="select"
                         custom
+                        value={this.state.iso3}
+                        onChange={e => {
+                          console.log(e.target.value);
+                          this.getConfirmed(e.target.value);
+                        }}
                       >
                         {country != null ? (
                           country.map((item, index) => (
-                            <option key={index}>{item.name}</option>
+                            <option key={index} value={item.iso3}>
+                              {item.name}
+                            </option>
                           ))
                         ) : (
                           <option>Loading</option>
@@ -109,7 +103,7 @@ class Home extends Component {
                     className="d-inline-block align-top"
                   />
                   <h3>Confirmed</h3>
-                  <h5>{databycountry.confirmed}</h5>
+                  <h5>{data?.confirmed?.value}</h5>
                 </Container>
               </Card>
             </Col>
@@ -124,7 +118,7 @@ class Home extends Component {
                     className="d-inline-block align-top"
                   />
                   <h3>Recovered</h3>
-                  <h5>{databycountry.recovered}</h5>
+                  <h5>{data?.recovered?.value}</h5>
                 </Container>
               </Card>
             </Col>
@@ -142,7 +136,7 @@ class Home extends Component {
                     className="d-inline-block align-top"
                   />
                   <h3>Death</h3>
-                  <h5>{databycountry.deaths}</h5>
+                  <h5>{data?.deaths?.value}</h5>
                 </Container>
               </Card>
             </Col>
@@ -158,7 +152,7 @@ class Home extends Component {
                   />
                   <h3>Last Update</h3>
                   <h5>
-                    {moment(databycountry.lastUpdate)
+                    {moment(data?.lastUpdate)
                       .subtract(3, "days")
                       .calendar()}
                   </h5>

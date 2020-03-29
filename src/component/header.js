@@ -19,7 +19,15 @@ class Header extends Component {
           />
           &nbsp; Coronas
         </Navbar.Brand>
-        <Button variant="outline-light">About Me</Button>
+        <Button variant="outline-light">
+          <a
+            href="https://github.com/cosmoas13"
+            target="_blank"
+            style={{ color: "#fff" }}
+          >
+            About Me
+          </a>
+        </Button>
       </Navbar>
     );
   }
