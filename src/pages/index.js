@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Container, Row, Col, Card, Jumbotron, Form } from "react-bootstrap";
 import axios from "axios";
+import moment from "moment";
 import "../App.css";
 import Header from "../component/header";
 import Chart from "../component/chart";
@@ -156,7 +157,11 @@ class Home extends Component {
                     className="d-inline-block align-top"
                   />
                   <h3>Last Update</h3>
-                  <h5>{databycountry.lastUpdate}</h5>
+                  <h5>
+                    {moment(databycountry.lastUpdate)
+                      .subtract(3, "days")
+                      .calendar()}
+                  </h5>
                 </Container>
               </Card>
             </Col>
