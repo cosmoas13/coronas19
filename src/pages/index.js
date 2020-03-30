@@ -163,11 +163,71 @@ class Home extends Component {
           <br />
           <Row>
             <Col className="col-style" xs={12} md={12}>
-              <Card className="card-style1">
-                <Container>
+              <Card>
+                <Container
+                  style={{
+                    backgroundColor: "#3a2d38",
+                    borderRadius: "15px",
+                    borderColor: "#3a2d38",
+                    color: "#3a2d38"
+                  }}
+                >
                   <Chart legendPosition="bottom" />
                 </Container>
               </Card>
+            </Col>
+          </Row>
+          <Row>
+            <Col xs={12} md={12}>
+              <Container className="parentFoot">
+                <div
+                  style={{ display: "flex", justifyContent: "space-around" }}
+                >
+                  <div className="footer">
+                    <a href="https://github.com/cosmoas13">
+                      <img
+                        alt=""
+                        src="/images/github.svg"
+                        width="25"
+                        height="25"
+                        className="d-inline-block align-top"
+                      />
+                    </a>
+                  </div>
+                  <div className="footer">
+                    <a href="https://www.facebook.com/cosmo.as">
+                      <img
+                        alt=""
+                        src="/images/facebook.svg"
+                        width="25"
+                        height="25"
+                        className="d-inline-block align-top"
+                      />
+                    </a>
+                  </div>
+
+                  <div className="footer">
+                    <a href="https://www.instagram.com/cosmo.as/">
+                      <img
+                        alt=""
+                        src="/images/instagram.svg"
+                        width="25"
+                        height="25"
+                        className="d-inline-block align-top"
+                      />
+                    </a>
+                  </div>
+                </div>
+              </Container>
+            </Col>
+          </Row>
+          <br />
+          <Row>
+            <Col xs={12} md={12}>
+              <p style={{ color: "gray" }}>
+                created by &copy;cosmoas13 - API from{" "}
+                <a href="https://covid19.mathdro.id/api/">@mathdro.id</a>
+              </p>
             </Col>
           </Row>
         </Container>

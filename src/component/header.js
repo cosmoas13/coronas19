@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
+import "../App.css";
 import { Navbar, Button, Form } from "react-bootstrap";
 class Header extends Component {
   render() {

@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+    <link rel="icon" href="%PUBLIC_URL%/covid-19.svg" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#000000" />
@@ -40,7 +40,7 @@
             var drops = "";
             var backDrops = "";
 
-            while (increment < 100) {
+            while (increment < 1080) {
               //couple random numbers to use for various randomizations
               //random number between 98 and 1
               var randoHundo = Math.floor(Math.random() * (98 - 1 + 1) + 1);
@@ -53,7 +53,7 @@
                 '<div class="drop" style="left: ' +
                 increment +
                 "%; bottom: " +
-                (randoFiver + randoFiver - 1 + 100) +
+                (randoFiver + randoFiver - 1 + 10) +
                 "%; animation-delay: 0." +
                 randoHundo +
                 "s; animation-duration: 0.5" +
@@ -71,7 +71,7 @@
                 '<div class="drop" style="right: ' +
                 increment +
                 "%; bottom: " +
-                (randoFiver + randoFiver - 1 + 100) +
+                (randoFiver + randoFiver - 1 + 10) +
                 "%; animation-delay: 0." +
                 randoHundo +
                 "s; animation-duration: 0.5" +

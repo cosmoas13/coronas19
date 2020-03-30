@@ -1,35 +1,50 @@
+.footer {
+  height: 45px;
+  width: 45px;
+  margin-top: 15px;
+  margin-left: 20px;
+  padding: 5px;
+  padding-top: 10px;
+  border-radius: 15px;
+  color: rgba(0, 5, 11, 0.9);
+  box-shadow: 20px 20px 60px #2b212a, -20px -20px 60px #3a2d38;
+}
+
+.chart {
+  display: flex;
+  justify-content: center;
+}
+
+.footer {
+  justify-content: center;
+  align-content: center;
+}
+
+.parentFoot {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 .card-style {
   background-color: transparent;
-  border-radius: 50px;
+  border-radius: 15px;
   box-shadow: -20px -20px 60px #3a2d38, 20px 20px 60px #4e3d4c;
   height: 230px;
   justify-content: center;
   align-items: center;
 }
 
-.card-style1 {
-  background-color: transparent;
-  border-radius: 50px;
-  box-shadow: -20px -20px 60px #3a2d38, 20px 20px 60px #4e3d4c;
-  height: 400px;
-  justify-content: center;
-  align-items: center;
+.card {
+  background-color: #3a2d38;
 }
 
 body {
-  height: 100%;
-  width: 100%;
+  height: 100vh;
+  width: 100vw;
   margin: 0;
   overflow-x: hidden;
   background: #443542;
-  --color-background: #22272b;
-  --color-on-background: #fff;
-  --color-layer-transparent: rgba(0, 5, 11, 0.9);
-  --color-surface: #2c343a;
-  --color-primary: #67c2e4;
-  --color-on-primary: #fff;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }
 
 .card-style h3 {
